@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloud_Poe_PartOne", "Cloud_Poe_PartOne\Cloud_Poe_PartOne.csproj", "{2A33A8CD-E5CB-47E7-8FE7-CAC0C36B1C85}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poe", "Poe\Poe.csproj", "{737C7902-CEEC-40CD-8B7A-E27E073A2948}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2A33A8CD-E5CB-47E7-8FE7-CAC0C36B1C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A33A8CD-E5CB-47E7-8FE7-CAC0C36B1C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A33A8CD-E5CB-47E7-8FE7-CAC0C36B1C85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{737C7902-CEEC-40CD-8B7A-E27E073A2948}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{737C7902-CEEC-40CD-8B7A-E27E073A2948}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{737C7902-CEEC-40CD-8B7A-E27E073A2948}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{737C7902-CEEC-40CD-8B7A-E27E073A2948}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
