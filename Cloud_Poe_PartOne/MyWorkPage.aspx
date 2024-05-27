@@ -73,40 +73,38 @@
                 <div class="image-container">
                     <img src="https://i.pinimg.com/originals/74/08/b5/7408b5c6247847cb71bfb7c79823cdca.jpg" alt="Image 1">
                     <div class="image-info">
-                        <p>This artifact is priced at R30000</p>
-                        <a href="#" class="purchase-button">Purchase</a>
+                        <p>This artifact is priced at R30000
+                            3 is available
+                        </p>
+                        <asp:Button ID="btnPurchase1" runat="server" Text="Purchase" CssClass="purchase-button" OnClick="btnPurchase1_Click" />
+                        <asp:Label ID="LblProd1" runat="server" Text=""></asp:Label>
                     </div>
                 </div>
                 <div class="image-container">
                     <img src="https://maxwellpriceancientartifactscollection.com/wp-content/uploads/2021/06/VU_Brauer_2-18-20_0024-scaled.jpg" alt="Image 2">
                     <div class="image-info">
-                        <p class="ancient-description">This artifact was crafted in the DRC by the local tribes and it symbolizes strength. They believed it provides them with protection too, discovered by Emmanual Tolu.</p>
+                        <p class="ancient-description">(6 available)This artifact was crafted in the DRC by the local tribes and it symbolizes strength. They believed it provides them with protection too, discovered by Emmanual Tolu.</p>
                         <p>This artifact is priced at R150000</p>
-                        <a href="#" class="purchase-button">Purchase</a>
+                        <asp:Button ID="btnPurchase2" runat="server" Text="Purchase" CssClass="purchase-button" OnClick="btnPurchase2_Click" />
+                         <asp:Label ID="LblProd2" runat="server" Text=""></asp:Label>
                     </div>
                 </div>
+                <!-- Add other images with purchase buttons -->
                 <div class="image-container">
-                    <img src="https://th.bing.com/th/id/OIP.8eyvXNygCEjcZJ5zLlLWywAAAA?rs=1&pid=ImgDetMain" alt="Image 4">
-                    <div class="image-info">
-                        <p class="ancient-description">This is an ancient artifact which was said to belong to a great emperor of Egypt and is almost 200 years old. It was discovered by the great Mark Johnson, who was a collector and sold the artifact at auction.</p>
-                        <p>This artifact is priced at R100000</p>
-                        <a href="#" class="purchase-button">Purchase</a>
-                    </div>
-                </div>
-                <!-- New Image -->
-                <div class="image-container">
-                    <img src="https://th.bing.com/th/id/OIP.eFxRV4SGY-DoZRvdY0fhRgHaJu?rs=1&pid=ImgDetMain" alt="Image 5">
-                    <div class="image-info">
-                        <p class="ancient-description">This artifact was a symbol of the war that occurred in East Rome, symbolizing a warrior's strength. Discovered by Felix Roth.</p>
-                        <p>This artifact is priced at R180000</p>
-                        <a href="#" class="purchase-button">Purchase</a>
-                    </div>
-                </div>
+    <img src="https://th.bing.com/th/id/OIP.eFxRV4SGY-DoZRvdY0fhRgHaJu?rs=1&pid=ImgDetMain" alt="Image 5">
+    <div class="image-info">
+        <p class="ancient-description">This artifact was a symbol of the war that occurred in East Rome, symbolizing a warrior's strength. Discovered by Felix Roth  There is 5 available.</p>
+        <p>This artifact is priced at R180000</p>
+        <asp:Button ID="btnPurchase3" runat="server" Text="Purchase" CssClass="purchase-button" OnClick="btnPurchase3_Click" />
+        <asp:Label ID="LblProd3" runat="server" Text=""></asp:Label>
+    </div>
+</div>
             </div>
             <div class="footer">
                 <p>&copy; 2024 KhumaloCraft. All rights reserved.</p>
             </div>
         </div>
+
     </form>
 </body>
 </html>

@@ -44,17 +44,17 @@
                 <label for="email">Email address</label>
                 <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="Enter email"></asp:TextBox>
             </div>
-            <!----->
-            <label for="role" class="sr-only">Select user role</label>
-            <select id="SlRole" runat="server" class="rounded">
-                <option value="Buyer">Buyer</option>
-                <option value="Seller">Seller</option>
-            </select>
-             <div class="form-group">
-                 <label for="phoneNumber">Phone number</label>
-                 <asp:TextBox ID="txtPhoneNumber" runat="server" CssClass="form-control" placeholder="Enter phone number"></asp:TextBox>
-             </div>
-
+            <div class="form-group">
+                <label for="role" class="sr-only">Select user role</label>
+                <select id="SlRole" runat="server" class="form-control">
+                    <option value="Buyer">Buyer</option>
+                    <option value="Seller">Seller</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone number</label>
+                <asp:TextBox ID="txtPhoneNumber" runat="server" CssClass="form-control" placeholder="Enter phone number"></asp:TextBox>
+            </div>
             <div class="form-group">
                 <label for="password">Password</label>
                 <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Enter password"></asp:TextBox>
@@ -64,10 +64,11 @@
                 <asp:TextBox ID="confirmPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Confirm password"></asp:TextBox>
             </div>
             <div class="text-center">
-                <asp:Button ID="btnCreateAccount" runat="server" CssClass="btn btn-primary btn-block" Text="Create Account" />
+                <asp:Button ID="btnCreateAccount" runat="server" CssClass="btn btn-primary btn-block" Text="Create Account" OnClick="btnCreateAccount_Click" />
             </div>
-            <!---------->
-            <a href="LoginPage.aspx">Already have an account? login!</a>
+            <div class="text-center mt-3">
+                <asp:LinkButton ID="Login" runat="server" OnClick="LinkButton1_Click" CssClass="btn btn-link">Already have an account? Login!</asp:LinkButton>
+            </div>
         </div>
     </form>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

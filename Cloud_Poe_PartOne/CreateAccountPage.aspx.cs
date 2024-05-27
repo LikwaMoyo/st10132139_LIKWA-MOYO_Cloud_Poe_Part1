@@ -2,7 +2,6 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Web.UI;
-using System.Xml.Linq;
 
 namespace Cloud_Poe_PartOne
 {
@@ -10,53 +9,50 @@ namespace Cloud_Poe_PartOne
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnCreateAccount_Click(object sender, EventArgs e)
         {
-            string email = txtEmail.Text;
-            string name = txtUsername.Text;
-            string password = txtPassword.Text;
-            string role = SlRole.Value;
-            string phoneNumber = txtPhoneNumber.Text;
-            // inserts the user 
-            CreateUser(email, name, password, role, phoneNumber);        
+            string username = txtUsername.Text.Trim();
+            string email = txtEmail.Text.Trim();
+            string password = txtPassword.Text.Trim();
+            string confirm = confirmPassword.Text.Trim();
+            string role = SlRole.DataTextField;
+            string phoneNumber = txtPhoneNumber.Text.Trim();
 
+            if (password == confirm)
+            {
+                // Insert new user into the database
+                string connectionString = "Server=tcp:sqlserverkhumalo.database.windows.net,1433;Initial Catalog=khumaloDBpoe;Persist Security Info=False;User ID=st1013213;Password=lolboy12HH;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    string query = "INSERT INTO Users (Email, Name, Password, Role, PhoneNumber) VALUES (@Email, @Name, @Password, @Role, @PhoneNumber)";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@Name", username);
+                    cmd.Parameters.AddWithValue("@Password", password); // Note: This should be hashed in a real application
+                    cmd.Parameters.AddWithValue("@Role", role);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+
+                // Redirect to a different page after successful account creation
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                // Display error message for password mismatch
+                // lblError.Visible = true;
+                // lblError.Text = "Passwords do not match.";
+            }
         }
 
-        private void CreateUser(string email, string name,string password, string role, string phoneNumber)
+        public void LinkButton1_Click(object sender, EventArgs e)
         {
-            // connection string
-            string connectionString = "Data Source=sqlserverkhumalo.database.windows.net;Initial Catalog=khumaloDBpoe;Persist Security Info=True;User ID=st1013213;Password=lolboy12HH";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    string query = "INSERT INTO users (email, name, password, role, phoneNumber) VALUES (@Email, @Name, @Password, @Role, @PhoneNumber)";
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@Email", email);
-                        command.Parameters.AddWithValue("@Name", name);
-                        command.Parameters.AddWithValue("@Password", password);
-                        command.Parameters.AddWithValue("@Role", role);
-                        command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-
-                        command.ExecuteNonQuery();
-                        // You can add a message to notify the user of the success
-                        Response.Write("<script>alert('User created successfully!');</script>");
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    // Handle the exception (log it, display error message, etc.)
-                    Response.Write("<script>alert('An error occurred: " + ex.Message + "');</script>");
-                }               
-                
-            }
+            Response.Redirect("Login.aspx");
         }
     }
 }
